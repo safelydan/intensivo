@@ -1,15 +1,17 @@
-const imagemVisualizacao = document.getElementById("imagem-visualizacao")
-const tituloProduto = document.getElementById("titulo-produto")
+// seleção de elementos HTML pelo ID
+const imagemVisualizacao = document.getElementById("imagem-visualizacao");
+const tituloProduto = document.getElementById("titulo-produto");
+const nomeCorSelecionada = document.getElementById("nome-cor-selecionada");
 
-// definição de um objeto representando a cor "azul-inverno"
-const azulInverno = {
-    nome: "Azul-inverno",      // propriedade: nome da cor
-    pasta: "imagens-azul-inverno"   // propriedade: pasta onde estão armazenadas as imagens dessa cor
-};   
-
+// definição de objetos representando diferentes cores
 const verdeCipreste = {
     nome: "Verde-cipreste",
     pasta: "imagens-verde-cipreste"
+};
+
+const azulInverno = {
+    nome: "Azul-inverno",
+    pasta: "imagens-azul-inverno"
 };
 
 const meiaNoite = {
@@ -17,25 +19,26 @@ const meiaNoite = {
     pasta: "imagens-meia-noite"
 };
 
-const rosaClaro = {
-    nome: "Rosa-claro",
-    pasta: "imagens-rosa-claro"
-};
-
 const estelar = {
     nome: "Estelar",
     pasta: "imagens-estelar"
 };
 
-// acesso à propriedade "pasta" do objeto "meiaNoite" e não está sendo feito nada com o valor retornado
-meiaNoite.pasta;  
+const rosaClaro = {
+    nome: "Rosa-claro",
+    pasta: "imagens-rosa-claro"
+};
+
+// acesso à propriedade "pasta" do objeto "meiaNoite" sem fazer nada com o valor retornado
+meiaNoite.pasta;
 
 // criação de uma lista chamada "opcoesDeCores" contendo os objetos das cores definidas anteriormente
-const opcoesDeCores = [azulInverno, verdeCipreste, meiaNoite, rosaClaro, estelar];
+const opcoesDeCores = [verdeCipreste, azulInverno, meiaNoite, estelar, rosaClaro];
 const opcoesTamanho = ["41 mm", "45 mm"];
 
-let imagemSelecionada = 1; // funciona sem mas da erro no console dizendo que a variavel nao esta definida
-let tamanhoSelecionado = 1; 
+let imagemSelecionada = 1;
+let tamanhoSelecionado = 1;
+let corSelecionada = 1;
 
 // função para trocar a imagem visualizada com base na opção selecionada
 function trocarImagem() {
@@ -50,21 +53,31 @@ function trocarImagem() {
 }
 
 function trocarTamanho() {
-    // o que a gente quer?
-
-    // atualizar variavel de controle do tamamho da caixa
+    // obtém o ID da opção de tamanho selecionada
     const idTamanhoSelecionado = document.querySelector('[name="opcao-tamanho"]:checked').id;
+    
+    // atualiza a variável de controle do tamanho da caixa com o primeiro caractere do ID
     tamanhoSelecionado = idTamanhoSelecionado.charAt(0);
 
-    // mudar o titulo
-    tituloProduto.innerText = `Pulseira loop esportiva azul-inverno para caixa de ${opcoesTamanho[tamanhoSelecionado]}`;
-
-    // mudar o tamanho da imagem de acordo com a opçao escolhida
-    if(opcoesTamanho[tamanhoSelecionado] === "41 mm"){
-        imagemVisualizacao.classList.add('caixa-pequena');
-    }else{
-        imagemVisualizacao.classList.remove('caixa-pequena');
+    // atualiza o título do produto com base no tamanho escolhido
+    tituloProduto.innerText = `Pulseira loop esportiva ${opcoesDeCores[corSelecionada].nome} para caixa de ${opcoesTamanho[tamanhoSelecionado]}`;
+    
+    // verifica se o tamanho escolhido é "41 mm" para aplicar ou remover a classe 'caixa-pequena' na imagem
+    if (opcoesTamanho[tamanhoSelecionado] === "41 mm") {
+        imagemVisualizacao.classList.add('caixa-pequena'); 
+    } else {
+        imagemVisualizacao.classList.remove('caixa-pequena'); 
     }
+}
 
-
+function trocarCor() {
+    // obtém o ID da opção de cor selecionada
+    const idOpcaoSelecionada = document.querySelector('[name="opcao-cor"]:checked').id;
+    corSelecionada = idOpcaoSelecionada.charAt(0);
+   
+    // atualiza o título geral do produto
+    tituloProduto.innerText = `Pulseira loop esportiva ${opcoesDeCores[corSelecionada].nome} para caixa de ${opcoesTamanho[tamanhoSelecionado]}`;
+    
+    // atualiza o título específico para a cor selecionada
+    nomeCorSelecionada.innerText = `Cor - ${opcoesDeCores[corSelecionada].nome}`;
 }
