@@ -2,6 +2,10 @@
 const imagemVisualizacao = document.getElementById("imagem-visualizacao");
 const tituloProduto = document.getElementById("titulo-produto");
 const nomeCorSelecionada = document.getElementById("nome-cor-selecionada");
+const miniatura0 = document.getElementById("0-imagem-miniatura")
+const miniatura1 = document.getElementById("1-imagem-miniatura")
+const miniatura2 = document.getElementById("2-imagem-miniatura")
+
 
 // definição de objetos representando diferentes cores
 const verdeCipreste = {
@@ -49,7 +53,7 @@ function trocarImagem() {
     imagemSelecionada = idOpcaoSelecionada.charAt(0);
     
     // atualiza o atributo "src" da imagem de visualização com o caminho da nova imagem
-    imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesDeCores[0].pasta}/imagem-${imagemSelecionada}.jpeg`;
+    imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesDeCores[corSelecionada].pasta}/imagem-${imagemSelecionada}.jpeg`;
 }
 
 function trocarTamanho() {
@@ -80,4 +84,10 @@ function trocarCor() {
     
     // atualiza o título específico para a cor selecionada
     nomeCorSelecionada.innerText = `Cor - ${opcoesDeCores[corSelecionada].nome}`;
+
+
+    imagemVisualizacao.src = `./imagens/opcoes-cores/${opcoesDeCores[corSelecionada].pasta}/imagem-${imagemSelecionada}.jpeg`;
+    miniatura0.src = `./imagens/opcoes-cores/${opcoesDeCores[corSelecionada].pasta}/imagem-0.jpeg`;
+    miniatura1.src = `./imagens/opcoes-cores/${opcoesDeCores[corSelecionada].pasta}/imagem-1.jpeg`;
+    miniatura2.src = `./imagens/opcoes-cores/${opcoesDeCores[corSelecionada].pasta}/imagem-2.jpeg`;
 }
