@@ -1,5 +1,6 @@
 const imagemVisualizacao = document.getElementById("imagem-visualizacao")
 const tituloProduto = document.getElementById("titulo-produto")
+
 // definição de um objeto representando a cor "azul-inverno"
 const azulInverno = {
     nome: "Azul-inverno",      // propriedade: nome da cor
@@ -33,11 +34,8 @@ meiaNoite.pasta;
 const opcoesDeCores = [azulInverno, verdeCipreste, meiaNoite, rosaClaro, estelar];
 const opcoesTamanho = ["41 mm", "45 mm"];
 
-// opcoesTamanho -
-
-// let imagemSelecionada = 1; //esta funcionando mesmo sem ela, averiguar depois o porque
-let tamanhoSelecionado = 1;
-
+let imagemSelecionada = 1; // funciona sem mas da erro no console dizendo que a variavel nao esta definida
+let tamanhoSelecionado = 1; 
 
 // função para trocar a imagem visualizada com base na opção selecionada
 function trocarImagem() {
@@ -59,10 +57,14 @@ function trocarTamanho() {
     tamanhoSelecionado = idTamanhoSelecionado.charAt(0);
 
     // mudar o titulo
-    tituloProduto.innerText = `Pulseira loop esportiva azul-inverno para caixa de ${opcoesTamanho[tamanhoSelecionado]}`
-    console.log(tamanhoSelecionado)
-    // `Pulseira loop esportiva azul-inverno para caixa de ${} mm`
+    tituloProduto.innerText = `Pulseira loop esportiva azul-inverno para caixa de ${opcoesTamanho[tamanhoSelecionado]}`;
+
     // mudar o tamanho da imagem de acordo com a opçao escolhida
+    if(opcoesTamanho[tamanhoSelecionado] === "41 mm"){
+        imagemVisualizacao.classList.add('caixa-pequena');
+    }else{
+        imagemVisualizacao.classList.remove('caixa-pequena');
+    }
 
 
 }
