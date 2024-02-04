@@ -1,20 +1,20 @@
+// importação de imagens para os pratos
 import enroladinhoMignonImg from './assets/pratos/enroladinho-mignon.jpeg';
 import casal20Img from './assets/pratos/casal-20.jpeg';
 import burguerPicanhaImg from './assets/pratos/burguer-picanha.jpeg';
 import fishChipsImg from './assets/pratos/fish-chips.jpeg';
 import risotoCamaraoTrufadoImg from './assets/pratos/risoto-camarao-trufado.jpeg';
-
 import brownieImg from './assets/sobremesas/brownie.jpeg';
 import cocadaFornoImg from './assets/sobremesas/cocada-forno.jpeg';
 import petitGateauImg from './assets/sobremesas/petit-gateau.jpeg';
-
 import aguaSemGasImg from './assets/bebidas/agua-sem-gas.jpeg';
 import aguaComGasImg from './assets/bebidas/agua-com-gas.jpeg';
 import cocaColaImg from './assets/bebidas/coca-cola.jpeg';
 import guaranaImg from './assets/bebidas/guarana.jpeg';
 import heinekenImg from './assets/bebidas/heineken.jpeg';
 
-export const enroladinhoMignon = {
+// dados dos pratos principais
+const enroladinhoMignon = {
   nome: 'Enroladinho de Mignon',
   preco: 'R$ 64,90',
   imagem: enroladinhoMignonImg,
@@ -38,7 +38,7 @@ const fishChips = {
   preco: 'R$ 79,90',
   imagem: fishChipsImg,
   descricao:
-    'Iscas de Peixe Empanada na Farinha Panko e Flocos de Milho e Batata Frita Palito',
+    'Iscas de peixe empanadas na farinha Panko e flocos de milho, acompanhadas de batata frita palito',
 };
 const risotoCamaraoTrufado = {
   nome: 'Risoto de Camarão Trufado',
@@ -48,6 +48,7 @@ const risotoCamaraoTrufado = {
     'Arroz Arbóreo, camarões salteados no azeite trufado e crocantes de panko',
 };
 
+// dados das sobremesas
 const brownie = {
   nome: 'Brownie',
   preco: 'R$ 32,90',
@@ -70,6 +71,7 @@ const petitGateau = {
     'Bolo quente recheado com ganache de chocolate, leite condensado e castanha de caju',
 };
 
+// dados das bebidas
 const aguaSemGas = {
   nome: 'Água sem gás',
   preco: 'R$ 6,90',
@@ -101,6 +103,7 @@ const heineken = {
   descricao: '355ml',
 };
 
+// exportação de arrays de pratos, sobremesas e bebidas
 export const pratosPrincipais = [
   burguerPicanha,
   enroladinhoMignon,
@@ -109,6 +112,12 @@ export const pratosPrincipais = [
   risotoCamaraoTrufado,
 ];
 
-export const sobremesas = [brownie, cocadaForno, petitGateau];
+export const sobremesas = [brownie, 
+  cocadaForno, 
+  petitGateau];
 
-export const bebidas = [aguaSemGas, aguaComGas, cocaCola, guarana, heineken];
+export const bebidas = [aguaSemGas, 
+  aguaComGas, 
+  cocaCola, 
+  guarana, 
+  heineken];
